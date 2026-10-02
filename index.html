@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>A Future I Once Thought Was Impossible</title>
+
+
+    <style>
+
+        /* =====================================
+           BASIC PAGE SETTINGS
+        ===================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.8;
+            background-color: #f7faf7;
+            color: #26352c;
+        }
+
+
+        /* =====================================
+           NAVIGATION
+        ===================================== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(20, 70, 45, 0.96);
+            z-index: 1000;
+            padding: 15px 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #cce8d5;
+        }
+
+
+        /* =====================================
+           HERO / OPENING SCREEN
+        ===================================== */
+
+        header {
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    rgba(13, 65, 40, 0.90),
+                    rgba(28, 100, 63, 0.84)
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            padding: 80px 25px;
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .small-title {
+            font-family: Arial, Helvetica, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: clamp(42px, 7vw, 80px);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-subtitle {
+            font-size: 21px;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        .story-button {
+            display: inline-block;
+            background-color: white;
+            color: #175b39;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .story-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+
+        /* =====================================
+           GENERAL STORY SECTIONS
+        ===================================== */
+
+        .story-section {
+            padding: 100px 25px;
+        }
+
+        .story-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .chapter-number {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #39865a;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .story-section h2 {
+            color: #164f33;
+            font-size: 42px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .story-section p {
+            font-size: 18px;
+            margin-bottom: 24px;
+        }
+
+        .alternate {
+            background-color: #eaf4ed;
+        }
+
+
+        /* =====================================
+           ABOUT ME
+        ===================================== */
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .profile img {
+            width: 300px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0 #b8d8c3;
+        }
+
+        .profile-text {
+            flex: 1;
+        }
+
+
+        /* =====================================
+           IMPORTANT QUOTES
+        ===================================== */
+
+        .quote {
+            margin: 45px 0;
+            padding: 30px;
+            border-left: 6px solid #3b8d5c;
+            background-color: white;
+            font-size: 25px;
+            font-style: italic;
+            color: #174b31;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+
+        /* =====================================
+           COMMUNITY IMPACT CARD
+        ===================================== */
+
+        .impact-card {
+            margin: 55px 0;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+        }
+
+        .impact-content {
+            padding: 35px;
+        }
+
+        .impact-label {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #39865a;
+            font-size: 13px !important;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 8px !important;
+        }
+
+        .impact-content h3 {
+            color: #164f33;
+            font-size: 28px;
+            line-height: 1.3;
+            margin-bottom: 18px;
+        }
+
+        .impact-content p {
+            font-size: 17px;
+        }
+
+        .impact-reflection {
+            border-left: 4px solid #39865a;
+            padding-left: 20px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #365442;
+        }
+
+
+        /* =====================================
+           ARTICLE BUTTON
+        ===================================== */
+
+        .article-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 24px;
+            background-color: #175b39;
+            color: white;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 25px;
+
+            transition:
+                background-color 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .article-button:hover {
+            background-color: #0d3f27;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.18);
+        }
+
+
+        /* =====================================
+           JOURNEY TIMELINE
+        ===================================== */
+
+        .timeline {
+            margin-top: 50px;
+            border-left: 4px solid #4a9566;
+            padding-left: 35px;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -45px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background-color: #2e754d;
+            border-radius: 50%;
+            border: 4px solid #eaf4ed;
+        }
+
+        .timeline-item h3 {
+            color: #195437;
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+
+        /* =====================================
+           RESEARCH SECTION
+        ===================================== */
+
+        .research-box {
+            background-color: #174f34;
+            color: white;
+            padding: 45px;
+            border-radius: 20px;
+            margin-top: 35px;
+        }
+
+        .research-box h3 {
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
+
+
+        /* =====================================
+           FUTURE SELF
+        ===================================== */
+
+        .future {
+            background-color: #103d28;
+            color: white;
+            text-align: center;
+        }
+
+        .future .chapter-number {
+            color: #b8ddc5;
+        }
+
+        .future h2 {
+            color: white;
+        }
+
+        .future p {
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-message {
+            margin: 55px auto 0;
+            max-width: 800px;
+            padding: 40px;
+            border: 1px solid #8fc3a2;
+            border-radius: 20px;
+            font-size: 27px;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+
+        /* =====================================
+           FOOTER
+        ===================================== */
+
+        footer {
+            background-color: #092d1d;
+            color: white;
+            text-align: center;
+            padding: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        /* =====================================
+           MOBILE DESIGN
+        ===================================== */
+
+        @media (max-width: 750px) {
+
+            nav {
+                display: none;
+            }
+
+            .profile {
+                flex-direction: column;
+            }
+
+            .profile img {
+                width: 250px;
+                height: 320px;
+            }
+
+            .story-section h2 {
+                font-size: 34px;
+            }
+
+            .story-section {
+                padding: 70px 20px;
+            }
+
+            .impact-content {
+                padding: 25px;
+            }
+
+            .impact-content h3 {
+                font-size: 24px;
+            }
+
+            .final-message {
+                font-size: 22px;
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVIGATION
+===================================== -->
+
+<nav>
+
+    <ul>
+
+        <li><a href="#about">About Me</a></li>
+
+        <li><a href="#beginning">My Beginning</a></li>
+
+        <li><a href="#purpose">Finding Purpose</a></li>
+
+        <li><a href="#america">United States</a></li>
+
+        <li><a href="#research">My Future</a></li>
+
+        <li><a href="#future">Future Self</a></li>
+
+    </ul>
+
+</nav>
+
+
+
+<!-- =====================================
+     OPENING SCREEN
+===================================== -->
+
+<header>
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            My International Education Journey
+        </div>
+
+        <h1>
+            A Future I Once Thought Was Impossible
+        </h1>
+
+        <p class="hero-subtitle">
+            From Kwashieman, Ghana, to pursuing higher education
+            in the United States, this is the story of how education
+            changed what I believed was possible.
+        </p>
+
+        <a href="#about"
+           class="story-button">
+
+            Begin My Story ↓
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =====================================
+     ABOUT ME
+===================================== -->
+
+<section id="about"
+         class="story-section">
+
+    <div class="story-container">
+
+        <div class="chapter-number">
+            Introduction
+        </div>
+
+        <h2>
+            About Me
+        </h2>
+
+
+        <div class="profile">
+
+            <img src="photo.jpeg"
+                 alt="Photo of Ernestina Osei">
+
+
+            <div class="profile-text">
+
+                <p>
+                    My name is Ernestina Osei. I am currently a PhD
+                    student in Geography and Geospatial Sciences at
+                    Kansas State University.
+                </p>
+
+                <p>
+                    My journey to this point began thousands of miles
+                    away in Kwashieman, Accra, Ghana, where I was
+                    raised by my mother.
+                </p>
+
+                <p>
+                    Education has taken me farther than I once imagined,
+                    but understanding where I am going requires
+                    remembering where I began.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CHAPTER ONE
+===================================== -->
+
+<section id="beginning"
+         class="story-section alternate">
+
+    <div class="story-container">
+
+        <div class="chapter-number">
+            Chapter One
+        </div>
+
+        <h2>
+            Where My Story Began
+        </h2>
+
+
+        <p>
+            I grew up in Kwashieman, Accra, as the only child living
+            with my single mother. My mother raised me on her own and
+            was determined to make sure that I did not repeat the
+            mistakes she believed she had made while growing up.
+        </p>
+
+        <p>
+            She worried about the environment around me because there
+            were not many people in our neighborhood whom she wanted
+            me to look up to. As I grew older, people sometimes asked
+            how I turned out the way I did despite the environment in
+            which I was raised. For a long time, I honestly did not
+            know how to answer that question.
+        </p>
+
+        <p>
+            All I knew was that I was an introverted young girl who
+            believed strongly in education and self worth. I also
+            carried one message from my mother everywhere I went:
+            I should learn from her experiences and create a different
+            future for myself.
+        </p>
+
+
+        <div class="quote">
+            “Still, growing up, I often believed that I was unfortunate.”
+        </div>
+
+
+        <p>
+            I remember dreaming of attending Holy Child School, one of
+            the well known senior high schools in Ghana. When I did not
+            get into my dream school, despite having good grades for
+            the program I wanted to pursue, I was deeply disappointed.
+        </p>
+
+        <p>
+            I began thinking about the things I did not have. I thought
+            that perhaps if I had been born to wealthy parents, they
+            could have found a way to send me to my dream school.
+            I looked at people who had wealthy parents and father
+            figures in their lives and wondered why my life had to
+            be different. At that age, I thought life was simply
+            unfair to me.
+        </p>
+
+        <p>
+            I entered senior high school without much passion.
+            For much of that period, I felt lost. I was attending
+            school, but I did not have a clear idea of what I wanted
+            my future to look like.
+        </p>
+
+        <p>
+            During my final years, however, one of my teachers often
+            spoke to us about the importance of pursuing higher
+            education. Those conversations planted something in me.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CHAPTER TWO
+===================================== -->
+
+<section id="purpose"
+         class="story-section">
+
+    <div class="story-container">
+
+        <div class="chapter-number">
+            Chapter Two
+        </div>
+
+        <h2>
+            Finding My Purpose
+        </h2>
+
+
+        <p>
+            University seemed almost impossible at the time.
+            Within my immediate circle, completing senior high
+            school was already considered an achievement, and
+            many people did not continue to university.
+        </p>
+
+        <p>
+            My mother also believed that if I wanted to attend
+            university, I might have to wait for a few years
+            while she gathered enough money to pay my fees.
+            The cost of university education was simply more
+            than we could comfortably afford.
+        </p>
+
+
+        <div class="quote">
+            “But I did something neither of us had planned.”
+        </div>
+
+
+        <p>
+            I gathered the little money I could and secretly bought
+            an application form to Kwame Nkrumah University of
+            Science and Technology.
+        </p>
+
+        <p>
+            I did not tell my mother because I already knew our
+            financial situation, and I was afraid of what her
+            answer might be. More importantly, I did not know how
+            I would finance my education even if I was admitted.
+        </p>
+
+        <p>
+            What I did know was that I wanted something different
+            for my life.
+        </p>
+
+        <p>
+            I did not want my future to end with me helping my
+            mother sell things by the roadside. There was nothing
+            shameful about the work we did, but I knew that my
+            mother had sacrificed so much because she wanted me
+            to have opportunities that she did not have.
+        </p>
+
+
+        <div class="quote">
+            “That university application gave me something I had
+            been missing for years: purpose.”
+        </div>
+
+
+        <p>
+            I studied hard for my WASSCE, passed my examinations,
+            and eventually received admission to KNUST.
+        </p>
+
+        <p>
+            I had achieved what I wanted, but there was now an
+            even bigger problem. I had to tell my mother.
+        </p>
+
+        <p>
+            When I finally told her, I knew she was not happy
+            that I had gone through the entire process without
+            involving her. Yet, instead of allowing our financial
+            situation to end the opportunity, my mother found
+            a way.
+        </p>
+
+
+        <div class="quote">
+            “She took out a loan so that I could begin university.”
+        </div>
+
+
+        <p>
+            That sacrifice has remained with me. When I started
+            university, however, my insecurities did not suddenly
+            disappear. I still compared myself with other students.
+        </p>
+
+        <p>
+            I saw people who appeared to have more opportunities
+            and resources than I did, and sometimes I struggled
+            to believe that I could truly rise beyond the
+            circumstances in which I had grown up.
+        </p>
+
+        <p>
+            Eventually, I had to ask myself what I really wanted
+            from my life. I did not want to be someone who lived
+            from one temporary goal to another, only to lose my
+            sense of purpose once each goal was accomplished.
+        </p>
+
+        <p>
+            I wanted my education to mean something. I wanted to
+            gain knowledge in my field, contribute to communities,
+            make my mother proud, and eventually create
+            opportunities for others.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CHAPTER THREE
+===================================== -->
+
+<section id="america"
+         class="story-section alternate">
+
+    <div class="story-container">
+
+        <div class="chapter-number">
+            Chapter Three
+        </div>
+
+        <h2>
+            Thousands of Miles From Home
+        </h2>
+
+
+        <p>
+            Years later, my educational journey took me thousands
+            of miles away from Ghana when I came to the United
+            States to pursue my master's degree.
+        </p>
+
+        <p>
+            Arriving in a new country was exciting, but it was
+            also terrifying. I carried so many questions with me.
+        </p>
+
+
+        <div class="quote">
+            “I wondered whether I was prepared enough. Most of all,
+            I wondered whether I truly belonged in the spaces I
+            was entering.”
+        </div>
+
+
+        <p>
+            My experience in the United States gradually began
+            answering those questions.
+        </p>
+
+        <p>
+            I earned my master's degree in Geosciences, but some
+            of my most meaningful experiences happened beyond the
+            classroom.
+        </p>
+
+        <p>
+            Through an internship, I had the opportunity to apply
+            what I had learned and contribute to work that benefited
+            the local community.
+        </p>
+
+        <p>
+            I became part of a project that earned me recognition
+            from the city. Receiving that recognition meant much
+            more to me than having another accomplishment to add
+            to my résumé.
+        </p>
+
+
+
+        <!-- =================================
+             COMMUNITY IMPACT ARTICLE
+        ================================== -->
+
+        <div class="impact-card">
+
+            <div class="impact-content">
+
+                <p class="impact-label">
+                    IMPACT IN ACTION
+                </p>
+
+                <h3>
+                    Turning Research Into Positive Community Impact
+                </h3>
+
+                <p>
+                    My graduate experience gave me the opportunity
+                    to move beyond the classroom and use what I was
+                    learning to contribute to the community.
+                </p>
+
+                <p class="impact-reflection">
+                    Seeing my work recognized reminded me that
+                    education could become more than personal
+                    achievement. It could become a way to serve
+                    others.
+                </p>
+
+                <a href="https://hayspost.com/posts/521f1cea-355d-4034-9c0f-10ac70e94fd0"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="article-button">
+
+                    Read the Full Story →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <p>
+            For the first time, I could clearly see myself fulfilling
+            the promise I had made years earlier: to use my education
+            to give back.
+        </p>
+
+
+
+        <!-- =================================
+             EDUCATIONAL JOURNEY
+        ================================== -->
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    Ghana
+                </h3>
+
+                <p>
+                    Where my journey and belief in education began.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    KNUST
+                </h3>
+
+                <p>
+                    Where purpose became an educational journey.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    United States
+                </h3>
+
+                <p>
+                    Where international education challenged me
+                    to grow, adapt, and apply what I had learned.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>
+                    Kansas State University
+                </h3>
+
+                <p>
+                    Where I am beginning the next chapter of my
+                    journey as a researcher and educator.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CHAPTER FOUR
+===================================== -->
+
+<section id="research"
+         class="story-section">
+
+    <div class="story-container">
+
+        <div class="chapter-number">
+            Chapter Four
+        </div>
+
+        <h2>
+            The Researcher I Am Becoming
+        </h2>
+
+
+        <p>
+            Today, I have begun another chapter as a PhD student
+            in Geography and Geospatial Sciences at Kansas State
+            University.
+        </p>
+
+        <p>
+            I am the first woman in my family to reach this level
+            of higher education, something I do not take lightly.
+        </p>
+
+        <p>
+            I hope the knowledge and research skills I gain in
+            the United States will allow me to make an impact both
+            globally and in my home country, Ghana.
+        </p>
+
+
+        <div class="research-box">
+
+            <h3>
+                My Future Research and Impact
+            </h3>
+
+            <p>
+                Wildfires remain one of the major environmental
+                challenges in Ghana because of their effects on
+                forests, ecosystems, livelihoods, and communities.
+            </p>
+
+            <p>
+                Although Ghana has laws and regulations to prevent
+                and manage wildfires and bushfires, I believe that
+                research in this area is important for improving
+                our understanding and ability to monitor and
+                respond to these events.
+            </p>
+
+            <p>
+                My goal is to apply geospatial technologies to
+                provide scientific information that can support
+                informed decision making, environmental planning,
+                and effective wildfire management in Ghana, while
+                also contributing to the global understanding of
+                wildfires and environmental change through my
+                future research.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CHAPTER FIVE
+===================================== -->
+
+<section class="story-section alternate">
+
+    <div class="story-container">
+
+        <div class="chapter-number">
+            Chapter Five
+        </div>
+
+        <h2>
+            What International Education Has Taught Me
+        </h2>
+
+
+        <p>
+            International education has given me much more than
+            an academic qualification. It has changed how I
+            understand opportunity, purpose, and even my own story.
+        </p>
+
+        <p>
+            Being educated in the United States has exposed me
+            to people, ideas, technologies, and experiences that
+            have challenged me to grow both academically and
+            personally.
+        </p>
+
+
+        <div class="quote">
+            “It has shown me that where I started does not have
+            to determine how far I can go.”
+        </div>
+
+
+        <p>
+            Most importantly, my journey has changed the way I
+            understand my childhood. I once focused on everything
+            I thought I was missing.
+        </p>
+
+        <p>
+            Now, I recognize something I could not fully appreciate
+            then. I had a mother who, despite having limited
+            resources herself, was determined to give me an
+            opportunity to become more.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FINAL CHAPTER
+===================================== -->
+
+<section id="future"
+         class="story-section future">
+
+    <div class="story-container">
+
+        <div class="chapter-number">
+            Final Chapter
+        </div>
+
+        <h2>
+            To My Future Self
+        </h2>
+
+
+        <p>
+            As I think about the person I am becoming, I want my
+            future self to remember who I am at this moment.
+        </p>
+
+        <p>
+            I am still a student. I am still learning, asking
+            questions, making mistakes, and discovering the kind
+            of researcher and educator I want to become.
+        </p>
+
+        <p>
+            I want her to remember that the value of this
+            international education was never supposed to be
+            measured only by the degrees I earned, but by what
+            I chose to do with the opportunities those degrees
+            gave me.
+        </p>
+
+        <p>
+            I want her to remember the communities that welcomed
+            me, the people who invested in me, and the
+            responsibility I now have to create opportunities
+            for others.
+        </p>
+
+        <p>
+            I especially want her to remember my mother.
+            The loan she took out years ago was more than money
+            for university tuition. It was an investment in a
+            future that neither of us could see clearly at the
+            time.
+        </p>
+
+        <p>
+            I cannot change where my story began, and I no longer
+            wish that I could. The experiences I once considered
+            evidence of my misfortune have become part of what
+            gives my journey meaning.
+        </p>
+
+
+        <div class="final-message">
+            “I am becoming the woman my mother believed I could be,
+            and through education, I hope to become the kind of
+            person another young woman can believe she can be too.”
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    <p>
+        A Future I Once Thought Was Impossible
+    </p>
+
+    <p>
+        Ernestina Osei
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
